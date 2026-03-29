@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Estilos.css" asp-append-version="true"/>
+
+</head>
+<body>
+    <header>
+        <img class="logo" src="~/IMGS/banner.jpg" />
+    </header>
+    <nav>
+       
+        <div class="menu">
+            <a asp-controller="Vehiculo" asp-action="Index" class="menu-item">INICIO</a>
+            <a asp-controller="Cotizaciones" asp-action="Index" class="menu-item">Cotizaciones</a>
+            <a asp-controller="Compra" asp-action="Index" class="menu-item">Compra</a>
+            <a asp-controller="Consesionario" asp-action="Index" class="menu-item">Consesionario</a>
+            <a asp-controller="Servicio" asp-action="Index" class="menu-item">Servicio</a>
+            <a asp-controller="Evaluaciones" asp-action="Index" class="menu-item">Evaluaciones</a>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div>
+            venta de auto peru S.A.C <br />
+            av. lima 1120-villa el salvador <br />
+            telefono : 45789567 <br />
+            mail: ventasautoperu@gmail.com <br />
+        </div>
+        <div class="footer-rs">
+            <img src="~/IMGS/facebook.jpg" class="rs" />
+            <img src="~/IMGS/instagram.jpg" class="rs" />
+            <img src="~/IMGS/twitter.jpg" class="rs" />
+            <img src="~/IMGS/whatsapp.jpg" class="rs" />
+            <img src="~/IMGS/youtube.jpg" class="rs" />
+        </div>
+    </footer>
+</body>
+</html>
