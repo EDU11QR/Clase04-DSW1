@@ -1,0 +1,90 @@
+﻿@model IEnumerable<WebApplication2026.Models.ClassCotizar>
+
+@{
+    ViewData["Title"] = "Listado de Cotizaciones";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<h2 class="mb-3 text-center">📋 Listado de Cotizaciones</h2>
+
+<p class="text-center">
+    <a asp-controller="Compra" asp-action="Cotizar" class="btn btn-primary btn-sm">
+        + Crear Nueva Cotizacion
+    </a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped align-middle text-center shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.idcoti)</th>
+                <th>@Html.DisplayNameFor(model => model.Cliente)</th>
+                <th>@Html.DisplayNameFor(model => model.Conce)</th>
+                <th>@Html.DisplayNameFor(model => model.Cantidad)</th>
+                <th>@Html.DisplayNameFor(model => model.Precio)</th>
+                <th>@Html.DisplayNameFor(model => model.Tvehi)</th>
+                <th>@Html.DisplayNameFor(model => model.Total)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.idcoti</td>
+                    <td>@item.Cliente</td>
+                    <td>@item.Conce</td>
+                    <td>@item.Cantidad</td>
+                    <td>@item.Precio</td>
+                    <td>@item.Tvehi</td>
+                    <td class="fw-bold text-success">@item.Total</td>
+                    <td>
+                        @Html.ActionLink("Editar","Edit",new { id = item.idcoti },new { @class = "btn btn-primary btn-sm me-2" } )
+
+                        <button type="button"
+                                class="btn btn-danger btn-sm"
+                                onclick="confirmarEliminacion(@item.idcoti)">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination justify-content-center">
+
+            @for (int i = 0; i < (int)ViewBag.paginas; i++)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="listadoCotizaciones" asp-route-p="@i">
+                        @(i + 1)
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </nav>
+</div>
+
+<script>
+    function confirmarEliminacion(id) {
+        Swal.fire({
+            title: 'Eliminar Registro',
+            text: 'Usted desea Eliminar el registro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Si, eliminar registro!!!',
+            cancelButtonText: 'desea cancelar?',
+            reverseButtons: true,
+            focusCancel: true,
+            allowOutsideClick: false,
+            backdrop: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/Compra/Delete/' + id;
+            }
+        });
+    }
+</script>

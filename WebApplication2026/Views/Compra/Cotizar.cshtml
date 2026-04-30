@@ -1,0 +1,52 @@
+﻿@model WebApplication2026.Models.ClassCotizar
+@{
+    ViewBag.Title = "Sitio oficial de ventas de vehículos";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-4">
+
+        <h2 class="text-center mb-4 fw-bold text-primary">
+            🚗 COTIZA TU VEHÍCULO
+        </h2>
+
+        <form asp-controller="Compra" asp-action="CalculoCotizar" method="post">
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Cliente</label>
+                <input asp-for="Cliente" class="form-control text-center" placeholder="Ingresa tu nombre" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Concesionario</label>
+                <input asp-for="Conce" class="form-control text-center" placeholder="Nombre del concesionario" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Cantidad de vehículos</label>
+                <input asp-for="Cantidad" type="number" class="form-control text-center" placeholder="Ej: 1" />
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Elige el vehículo</label>
+                <select asp-for="Tvehi" class="form-select">
+                    <option value="">Seleccione vehículo</option>
+                    <option value="camaro">Camaro</option>
+                    <option value="camioneta">Camioneta</option>
+                    <option value="comercial">Comercial</option>
+                    <option value="cybertruck">Cybertruck</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="sedan">Sedán</option>
+                </select>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-warning btn-lg fw-bold">
+                    💰 Cotizar ahora
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

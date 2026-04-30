@@ -7,6 +7,12 @@ namespace WebApplication2026.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+        } //fin del metodo
+
+        public IActionResult Vehiculo()
+        {
+            return View();
+        } //fin del metodo
+
     }
 }

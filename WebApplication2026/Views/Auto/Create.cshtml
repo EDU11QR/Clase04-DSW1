@@ -1,0 +1,65 @@
+﻿@model WebApplication2026.Models.ClassAuto
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ClassAuto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Idauto" class="control-label"></label>
+                <input asp-for="Idauto" class="form-control" />
+                <span asp-validation-for="Idauto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label"></label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label"></label>
+                <input asp-for="Color" class="form-control" />
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor" class="control-label"></label>
+                <input asp-for="Motor" class="form-control" />
+                <span asp-validation-for="Motor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idmarca" class="control-label"></label>
+                <!--<input asp-for="Idmarca" class="form-control" />-->
+                <select asp-for="Idmarca" asp-items="@ViewBag.marcas"></select>
+                <span asp-validation-for="Idmarca" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="Nommarca" class="control-label"></label>
+                <input asp-for="Nommarca" class="form-control" />
+                <span asp-validation-for="Nommarca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
